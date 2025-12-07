@@ -173,7 +173,7 @@ export default function Privacy() {
           </div>
         </section>
 
-        {/* Section 4: Data Sharing */}
+        {/* Section 4: For More Security */}
         <section className="py-12">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -184,7 +184,77 @@ export default function Privacy() {
               className="max-w-4xl mx-auto"
             >
               <h2 className="text-4xl sm:text-5xl font-headline font-bold mb-8">
-                4. Data <span className="text-gradient">Sharing</span>
+                4. <span className="text-gradient">⚙️ For More Security</span>
+              </h2>
+              <div className="bg-dark-bg border border-primary-purple/30 rounded-2xl p-8 sm:p-12 space-y-6">
+                <p className="text-lg text-light-gray/90 font-body leading-relaxed">
+                  A few preventive tips to keep in mind:
+                </p>
+                
+                <div className="space-y-4">
+                  <h3 className="text-2xl font-headline font-bold text-primary-purple">
+                    🔸 Enable HTTPS Redirect
+                  </h3>
+                  <p className="text-light-gray/80 font-body">
+                    In your Nginx or host file, add:
+                  </p>
+                  <div className="bg-black/50 border border-primary-purple/20 rounded-lg p-4 overflow-x-auto">
+                    <pre className="text-sm text-light-gray/90 font-mono whitespace-pre">
+{`server {
+  listen 80;
+  server_name tvarx.com www.tvarx.com;
+  return 301 https://tvarx.com$request_uri;
+}`}
+                    </pre>
+                  </div>
+                  <p className="text-light-gray/80 font-body">
+                    This will always open the secure version of the site.
+                  </p>
+                </div>
+
+                <div className="space-y-4">
+                  <h3 className="text-2xl font-headline font-bold text-primary-purple">
+                    🔸 Adding Security Headers in Next.js
+                  </h3>
+                  <p className="text-light-gray/80 font-body">
+                    Write in the next.config.js file:
+                  </p>
+                  <div className="bg-black/50 border border-primary-purple/20 rounded-lg p-4 overflow-x-auto">
+                    <pre className="text-sm text-light-gray/90 font-mono whitespace-pre">
+{`async headers() {
+  return [
+    {
+      source: "/(.*)",
+      headers: [
+        { key: "X-Content-Type-Options", value: "nosniff" },
+        { key: "X-Frame-Options", value: "DENY" },
+        { key: "X-XSS-Protection", value: "1; mode=block" },
+        { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+        { key: "Content-Security-Policy", value: "default-src 'self'; script-src 'self' https://fonts.googleapis.com https://cdn.jsdelivr.net;" },
+      ],
+    },
+  ];
+}`}
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Section 5: Data Sharing */}
+        <section className="py-12">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="max-w-4xl mx-auto"
+            >
+              <h2 className="text-4xl sm:text-5xl font-headline font-bold mb-8">
+                5. Data <span className="text-gradient">Sharing</span>
               </h2>
               <div className="bg-dark-bg border border-primary-purple/30 rounded-2xl p-8 sm:p-12 space-y-4">
                 <p className="text-lg text-light-gray/90 font-body leading-relaxed">
@@ -202,7 +272,7 @@ export default function Privacy() {
           </div>
         </section>
 
-        {/* Section 5: Your Rights */}
+        {/* Section 6: Your Rights */}
         <section className="py-12">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -213,7 +283,7 @@ export default function Privacy() {
               className="max-w-4xl mx-auto"
             >
               <h2 className="text-4xl sm:text-5xl font-headline font-bold mb-8">
-                5. Your <span className="text-gradient">Rights</span>
+                6. Your <span className="text-gradient">Rights</span>
               </h2>
               <div className="bg-dark-bg border border-primary-purple/30 rounded-2xl p-8 sm:p-12 space-y-4">
                 <p className="text-lg text-light-gray/90 font-body leading-relaxed">
@@ -237,7 +307,7 @@ export default function Privacy() {
           </div>
         </section>
 
-        {/* Section 6: Cookies and Tracking */}
+        {/* Section 7: Cookies and Tracking */}
         <section className="py-12">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -248,7 +318,7 @@ export default function Privacy() {
               className="max-w-4xl mx-auto"
             >
               <h2 className="text-4xl sm:text-5xl font-headline font-bold mb-8">
-                6. Cookies and <span className="text-gradient">Tracking</span>
+                7. Cookies and <span className="text-gradient">Tracking</span>
               </h2>
               <div className="bg-dark-bg border border-primary-purple/30 rounded-2xl p-8 sm:p-12">
                 <p className="text-lg text-light-gray/90 font-body leading-relaxed">
@@ -262,7 +332,7 @@ export default function Privacy() {
           </div>
         </section>
 
-        {/* Section 7: Children's Privacy */}
+        {/* Section 8: Children's Privacy */}
         <section className="py-12">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -273,7 +343,7 @@ export default function Privacy() {
               className="max-w-4xl mx-auto"
             >
               <h2 className="text-4xl sm:text-5xl font-headline font-bold mb-8">
-                7. Children's <span className="text-gradient">Privacy</span>
+                8. Children's <span className="text-gradient">Privacy</span>
               </h2>
               <div className="bg-dark-bg border border-primary-purple/30 rounded-2xl p-8 sm:p-12">
                 <p className="text-lg text-light-gray/90 font-body leading-relaxed">
@@ -287,7 +357,7 @@ export default function Privacy() {
           </div>
         </section>
 
-        {/* Section 8: International Data Transfers */}
+        {/* Section 9: International Data Transfers */}
         <section className="py-12">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -298,7 +368,7 @@ export default function Privacy() {
               className="max-w-4xl mx-auto"
             >
               <h2 className="text-4xl sm:text-5xl font-headline font-bold mb-8">
-                8. International Data <span className="text-gradient">Transfers</span>
+                9. International Data <span className="text-gradient">Transfers</span>
               </h2>
               <div className="bg-dark-bg border border-primary-purple/30 rounded-2xl p-8 sm:p-12">
                 <p className="text-lg text-light-gray/90 font-body leading-relaxed">
@@ -309,7 +379,7 @@ export default function Privacy() {
           </div>
         </section>
 
-        {/* Section 9: Updates to This Policy */}
+        {/* Section 10: Updates to This Policy */}
         <section className="py-12">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -320,7 +390,7 @@ export default function Privacy() {
               className="max-w-4xl mx-auto"
             >
               <h2 className="text-4xl sm:text-5xl font-headline font-bold mb-8">
-                9. Updates to This <span className="text-gradient">Policy</span>
+                10. Updates to This <span className="text-gradient">Policy</span>
               </h2>
               <div className="bg-dark-bg border border-primary-purple/30 rounded-2xl p-8 sm:p-12">
                 <p className="text-lg text-light-gray/90 font-body leading-relaxed">
@@ -334,7 +404,7 @@ export default function Privacy() {
           </div>
         </section>
 
-        {/* Section 10: Contact Us */}
+        {/* Section 11: Contact Us */}
         <section className="py-12">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -345,7 +415,7 @@ export default function Privacy() {
               className="max-w-4xl mx-auto"
             >
               <h2 className="text-4xl sm:text-5xl font-headline font-bold mb-8">
-                10. Contact <span className="text-gradient">Us</span>
+                11. Contact <span className="text-gradient">Us</span>
               </h2>
               <div className="bg-dark-bg border border-primary-purple/30 rounded-2xl p-8 sm:p-12">
                 <p className="text-lg text-light-gray/90 font-body leading-relaxed mb-4">

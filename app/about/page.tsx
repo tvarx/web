@@ -211,6 +211,8 @@ export default function About() {
                   <p className="text-light-gray/70 text-sm font-body mb-4">{member.bio}</p>
                   <a
                     href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-violet-accent hover:text-primary-purple transition-colors text-sm font-body"
                   >
                     LinkedIn →

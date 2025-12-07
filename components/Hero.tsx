@@ -66,7 +66,7 @@ export default function Hero() {
               <svg
                 viewBox="0 0 200 200"
                 className="w-full h-full"
-                xmlns="http://www.w3.org/2000/svg"
+                xmlns="https://www.w3.org/2000/svg"
               >
                 <motion.path
                   d="M100 50 L120 100 L100 150 L80 100 Z"

@@ -34,3 +34,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+docker-compose.yml
+Dockerfile
+deploy.ps1
+.dockerignore
+nextjs-web.tar.gz

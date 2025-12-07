@@ -28,7 +28,9 @@ export default function CTA() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <motion.a
-              href="#"
+              href="https://apps.apple.com/app/tvarx"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-8 py-4 bg-dark-bg border-2 border-primary-purple rounded-lg hover:bg-primary-purple/10 transition-all glow-purple flex items-center gap-3"
@@ -40,7 +42,9 @@ export default function CTA() {
               </div>
             </motion.a>
             <motion.a
-              href="#"
+              href="https://play.google.com/store/apps/details?id=com.tvarx"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-8 py-4 bg-dark-bg border-2 border-primary-purple rounded-lg hover:bg-primary-purple/10 transition-all glow-purple flex items-center gap-3"

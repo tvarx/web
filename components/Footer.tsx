@@ -45,9 +45,9 @@ export default function Footer() {
           <div>
             <h4 className="font-headline font-semibold mb-4">Connect</h4>
             <div className="flex gap-4">
-              <a href="#" className="text-light-gray/70 hover:text-primary-purple transition-colors">Twitter</a>
-              <a href="#" className="text-light-gray/70 hover:text-primary-purple transition-colors">Instagram</a>
-              <a href="#" className="text-light-gray/70 hover:text-primary-purple transition-colors">LinkedIn</a>
+              <a href="https://twitter.com/tvarx" target="_blank" rel="noopener noreferrer" className="text-light-gray/70 hover:text-primary-purple transition-colors">Twitter</a>
+              <a href="https://instagram.com/tvarx" target="_blank" rel="noopener noreferrer" className="text-light-gray/70 hover:text-primary-purple transition-colors">Instagram</a>
+              <a href="https://linkedin.com/company/tvarx" target="_blank" rel="noopener noreferrer" className="text-light-gray/70 hover:text-primary-purple transition-colors">LinkedIn</a>
             </div>
           </div>
         </div>
