@@ -2,33 +2,35 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-
-const steps = [
-  {
-    number: '01',
-    title: 'Assess',
-    description: 'Tell us your goals, fitness level, and preferences. Our AI analyzes your unique profile.',
-    icon: '📊',
-  },
-  {
-    number: '02',
-    title: 'AI Plan',
-    description: 'Receive a personalized 7-day training program tailored to your body and objectives.',
-    icon: '🤖',
-  },
-  {
-    number: '03',
-    title: 'Train & Improve',
-    description: 'Track progress, adapt workouts, and watch your AI coach evolve with you.',
-    icon: '💪',
-  },
-]
+import { useI18n } from '@/i18n/context'
 
 export default function HowItWorks() {
+  const { t } = useI18n()
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   })
+
+  const steps = [
+    {
+      number: t.howItWorks.steps.assess.number,
+      title: t.howItWorks.steps.assess.title,
+      description: t.howItWorks.steps.assess.description,
+      icon: '📊',
+    },
+    {
+      number: t.howItWorks.steps.aiPlan.number,
+      title: t.howItWorks.steps.aiPlan.title,
+      description: t.howItWorks.steps.aiPlan.description,
+      icon: '🤖',
+    },
+    {
+      number: t.howItWorks.steps.train.number,
+      title: t.howItWorks.steps.train.title,
+      description: t.howItWorks.steps.train.description,
+      icon: '💪',
+    },
+  ]
 
   return (
     <section id="how-it-works" className="py-24 relative z-10">
@@ -41,10 +43,10 @@ export default function HowItWorks() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-headline font-bold mb-4">
-            How It <span className="text-gradient">Works</span>
+            {t.howItWorks.title.split('Works')[0]} <span className="text-gradient">Works</span>
           </h2>
           <p className="text-light-gray/70 text-lg max-w-2xl mx-auto">
-            Three simple steps to transform your fitness journey
+            {t.howItWorks.subtitle}
           </p>
         </motion.div>
 

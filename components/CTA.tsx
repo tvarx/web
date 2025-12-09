@@ -2,8 +2,10 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import { useI18n } from '@/i18n/context'
 
 export default function CTA() {
+  const { t } = useI18n()
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -20,10 +22,10 @@ export default function CTA() {
           className="max-w-4xl mx-auto text-center"
         >
           <h2 className="text-4xl sm:text-5xl font-headline font-bold mb-6">
-            Ready to <span className="text-gradient">Transform</span> Your Fitness?
+            {t.cta.title.split('Transform')[0]} <span className="text-gradient">Transform</span> {t.cta.title.split('Transform')[1] || ''}
           </h2>
           <p className="text-light-gray/70 text-lg mb-12 max-w-2xl mx-auto">
-            Download TvarX today and let AI craft the perfect training plan for you.
+            {t.cta.description}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
@@ -37,8 +39,8 @@ export default function CTA() {
             >
               <span className="text-2xl">📱</span>
               <div className="text-left">
-                <div className="text-xs text-light-gray/60">Download on</div>
-                <div className="font-headline font-bold">App Store</div>
+                <div className="text-xs text-light-gray/60">{t.cta.downloadOn}</div>
+                <div className="font-headline font-bold">{t.cta.appStore}</div>
               </div>
             </motion.a>
             <motion.a
@@ -51,15 +53,15 @@ export default function CTA() {
             >
               <span className="text-2xl">🤖</span>
               <div className="text-left">
-                <div className="text-xs text-light-gray/60">Get it on</div>
-                <div className="font-headline font-bold">Google Play</div>
+                <div className="text-xs text-light-gray/60">{t.cta.getItOn}</div>
+                <div className="font-headline font-bold">{t.cta.googlePlay}</div>
               </div>
             </motion.a>
           </div>
 
           <div className="p-4 bg-primary-purple/10 border border-primary-purple/30 rounded-lg max-w-2xl mx-auto">
             <p className="text-sm text-light-gray/70 font-body">
-              ⚠️ <strong>Important:</strong> Consult your physician before starting any new exercise program.
+              ⚠️ <strong>{t.cta.disclaimer}</strong>
             </p>
           </div>
         </motion.div>

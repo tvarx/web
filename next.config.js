@@ -2,6 +2,26 @@
 const nextConfig = {
   reactStrictMode: true,
   output: 'standalone',
+  // Reduce build memory usage
+  experimental: {
+    // Reduce memory usage during build
+    optimizeCss: false, // Disable CSS optimization during build to save memory
+  },
+  // Reduce build parallelism to prevent OOM
+  webpack: (config, { isServer, dev }) => {
+    if (!isServer && !dev) {
+      // Reduce parallelism for production builds
+      config.optimization = {
+        ...config.optimization,
+        minimize: true,
+      }
+      // Limit parallel processing
+      if (config.parallelism) {
+        config.parallelism = 1
+      }
+    }
+    return config
+  },
   images: {
     domains: [],
   },

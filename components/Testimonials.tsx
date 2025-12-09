@@ -2,33 +2,16 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-
-const testimonials = [
-  {
-    name: 'Sarah Chen',
-    role: 'Marathon Runner',
-    quote: 'TvarX transformed my training. The AI understood my body better than I did.',
-    rating: 5,
-  },
-  {
-    name: 'Marcus Johnson',
-    role: 'Strength Athlete',
-    quote: 'Finally, a program that adapts as I get stronger. No more plateaus.',
-    rating: 5,
-  },
-  {
-    name: 'Elena Rodriguez',
-    role: 'Yoga Instructor',
-    quote: 'The balance between challenge and recovery is perfect. My clients love it too.',
-    rating: 5,
-  },
-]
+import { useI18n } from '@/i18n/context'
 
 export default function Testimonials() {
+  const { t } = useI18n()
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   })
+
+  const testimonials = t.testimonials.testimonials
 
   return (
     <section className="py-24 relative z-10">
@@ -41,15 +24,15 @@ export default function Testimonials() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-headline font-bold mb-4">
-            Loved by <span className="text-gradient">Athletes</span>
+            {t.testimonials.title.split('Athletes')[0]} <span className="text-gradient">Athletes</span>
           </h2>
           <p className="text-light-gray/70 text-lg max-w-2xl mx-auto">
-            Join thousands who've transformed their fitness journey
+            {t.testimonials.subtitle}
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {testimonials.map((testimonial, index) => (
+          {testimonials.map((testimonial: any, index: number) => (
             <motion.div
               key={testimonial.name}
               initial={{ opacity: 0, y: 50 }}
@@ -59,7 +42,7 @@ export default function Testimonials() {
               className="bg-dark-bg border-2 border-primary-purple/30 rounded-xl p-6 hover:border-violet-accent transition-all duration-300 glow-purple hover:glow-violet"
             >
               <div className="flex gap-1 mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
+                {[...Array(5)].map((_, i) => (
                   <span key={i} className="text-yellow-400">⭐</span>
                 ))}
               </div>

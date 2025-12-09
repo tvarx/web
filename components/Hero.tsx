@@ -2,8 +2,11 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { useI18n } from '@/i18n/context'
 
 export default function Hero() {
+  const { t, locale } = useI18n()
+  
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -14,9 +17,9 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-headline font-bold mb-6"
           >
-            <span className="text-gradient">tvarx</span>
+            <span className="text-gradient">{t.hero.title}</span>
             <br />
-            <span className="text-light-gray">the intelligence of movement</span>
+            <span className="text-light-gray">{t.hero.subtitle}</span>
           </motion.h1>
           
           <motion.p
@@ -25,7 +28,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl sm:text-2xl text-light-gray/80 mb-12 font-body max-w-3xl mx-auto"
           >
-            A personalized training plan, powered by AI, designed for your goals.
+            {t.hero.description}
           </motion.p>
 
           <motion.div
@@ -35,16 +38,16 @@ export default function Hero() {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <Link
-              href="#demo"
+              href={`/${locale}#demo`}
               className="px-8 py-4 bg-primary-purple text-white rounded-lg font-headline font-semibold text-lg hover:bg-primary-purple/90 transition-all duration-300 glow-purple hover:scale-105"
             >
-              Get My Plan
+              {t.hero.getMyPlan}
             </Link>
             <Link
-              href="#how-it-works"
+              href={`/${locale}#how-it-works`}
               className="px-8 py-4 border-2 border-primary-purple text-primary-purple rounded-lg font-headline font-semibold text-lg hover:bg-primary-purple/10 transition-all duration-300 hover:scale-105"
             >
-              Watch Demo
+              {t.hero.watchDemo}
             </Link>
           </motion.div>
         </div>

@@ -2,35 +2,37 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-
-const features = [
-  {
-    title: 'AI Personalization',
-    description: 'Every workout is uniquely crafted by advanced AI algorithms that learn from your progress.',
-    icon: '🧠',
-  },
-  {
-    title: 'Adaptive Progress',
-    description: 'Your program evolves in real-time as you get stronger, faster, and more capable.',
-    icon: '📈',
-  },
-  {
-    title: 'Safety & Recovery',
-    description: 'Built-in monitoring ensures you train smart, recover properly, and avoid injury.',
-    icon: '🛡️',
-  },
-  {
-    title: 'Home or Gym',
-    description: 'Whether you have a full gym or just bodyweight, we adapt to your environment.',
-    icon: '🏋️',
-  },
-]
+import { useI18n } from '@/i18n/context'
 
 export default function Features() {
+  const { t } = useI18n()
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   })
+
+  const features = [
+    {
+      title: t.features.aiPersonalization.title,
+      description: t.features.aiPersonalization.description,
+      icon: '🧠',
+    },
+    {
+      title: t.features.adaptiveProgress.title,
+      description: t.features.adaptiveProgress.description,
+      icon: '📈',
+    },
+    {
+      title: t.features.safety.title,
+      description: t.features.safety.description,
+      icon: '🛡️',
+    },
+    {
+      title: t.features.homeOrGym.title,
+      description: t.features.homeOrGym.description,
+      icon: '🏋️',
+    },
+  ]
 
   return (
     <section className="py-24 relative z-10">
@@ -43,10 +45,10 @@ export default function Features() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-headline font-bold mb-4">
-            Powerful <span className="text-gradient">Features</span>
+            {t.features.title.split('Features')[0]} <span className="text-gradient">Features</span>
           </h2>
           <p className="text-light-gray/70 text-lg max-w-2xl mx-auto">
-            Everything you need to achieve your fitness goals
+            {t.features.subtitle}
           </p>
         </motion.div>
 
