@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   output: 'standalone',
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH || '/web',
   // Reduce build memory usage
   experimental: {
     // Reduce memory usage during build
