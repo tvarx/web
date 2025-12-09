@@ -4,16 +4,12 @@ import { I18nProvider } from '@/i18n/context'
 import { Locale, locales, defaultLocale } from '@/i18n/config'
 import { getTranslations } from '@/i18n/utils'
 
-// Temporarily disable static generation to reduce build memory usage
-// Pages will be rendered on-demand instead
-export const dynamic = 'force-dynamic'
+// Enable static generation for all locales
 export const dynamicParams = true
 
-// Only generate static params for default locale to reduce build memory
+// Generate static params for all locales for static export
 export async function generateStaticParams() {
-  // Only pre-render the default locale to reduce build memory
-  // Other locales will be rendered on-demand
-  return [{ locale: defaultLocale }]
+  return locales.map((locale) => ({ locale }))
 }
 
 export async function generateMetadata({
