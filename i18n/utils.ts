@@ -6,7 +6,8 @@ import frTranslations from './translations/fr.json'
 import deTranslations from './translations/de.json'
 import arTranslations from './translations/ar.json'
 
-type Translations = typeof enTranslations
+export type { Locale }
+export type Translations = typeof enTranslations
 
 const translations: Record<Locale, Translations> = {
   en: enTranslations,
